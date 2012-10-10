@@ -22,7 +22,7 @@ func openTestConn(t *testing.T) *sql.DB {
 		os.Setenv("PGSSLMODE", "disable")
 	}
 
-	conn, err := sql.Open("postgres", "")
+	conn, err := sql.Open("postgres", cstr)
 	if err != nil {
 		t.Fatal(err)
 	}

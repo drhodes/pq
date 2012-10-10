@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"testing"
+	"runtime"
 )
 
 const createperson = `
@@ -20,6 +21,8 @@ create table person (
 `
 
 func TestMaxProcs(t *testing.T) {
+	runtime.GOMAXPROCS(4)
+
 	db := openTestConn(t)
 	defer db.Close()
 
